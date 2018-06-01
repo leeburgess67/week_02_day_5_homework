@@ -1,5 +1,6 @@
 require ("minitest/autorun")
 require_relative ("../guest.rb")
+require_relative ("../rooms.rb")
 require ("minitest/rg")
 
 class GuestTest < MiniTest::Test
@@ -10,6 +11,24 @@ class GuestTest < MiniTest::Test
     @guest3 = Guest.new("Ozzy Osbourne", "Children of the grave", 10)
     @guest4 = Guest.new("Rob Halford", "Painkiller", 0)
     @guest5 = Guest.new("Bruce Dickenson", "Run to the hills", 15)
+
+    @song1 = Song.new("Highway to hell")
+    @song2 = Song.new("Run to the hills")
+    @song3 = Song.new("Rocket Man")
+    @song4 = Song.new("Painkiller")
+    @song5 = Song.new("South of heaven")
+    @song6 = Song.new("Seek & Destroy")
+    @song7 = Song.new("November Rain")
+    @song8 = Song.new("Clenching the fists of decent")
+    @song9 = Song.new("Take the power back")
+    @song10 = Song.new("Black")
+
+    @metal_room = Room.new("Metal Room", 4, [@guest1, @guest2, @guest3, @guest4], [@song1, @song2, @song3], 10)
+
+    @rock_room = Room.new("Rock Room", 4, [@guest5, @guest6, @guest7], [@song4, @song5, @song6], 15)
+
+    @cheese_room = Room.new("Cheese Room", 4, [], [@song7, @song8], 5)
+
   end
 
   def test_has_name
@@ -21,8 +40,9 @@ class GuestTest < MiniTest::Test
   end
 
   def test_has_money
-    assert_equal(10, @guest3.wallet)ß
+    assert_equal(10, @guest3.wallet)
   end
+
 
 
 

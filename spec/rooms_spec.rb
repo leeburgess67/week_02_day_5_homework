@@ -3,6 +3,7 @@ require_relative ("../rooms.rb")
 require_relative ("../guest.rb")
 require_relative ("../songs.rb")
 require ("minitest/rg")
+require("pry")
 
 class RoomTest < MiniTest::Test
 
@@ -82,7 +83,9 @@ class RoomTest < MiniTest::Test
       assert_equal(1, @cheese_room.current_guests_in_room.count)
     end
 
-
+    def test_cheer_if_song_in_room
+      assert_equal("Wooooo!", @cheese_room.cheer_if_fav_song_in_room(@guest1))
+    end
 
 
 
