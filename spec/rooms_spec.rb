@@ -77,7 +77,12 @@ class RoomTest < MiniTest::Test
       assert_equal(0, @cheese_room.current_guests_in_room.count)
     end
 
-    
+    def test_allow_entry_if_enough_money
+      @cheese_room.check_in(@guest1)
+      assert_equal(1, @cheese_room.current_guests_in_room.count)
+    end
+
+
 
 
 
