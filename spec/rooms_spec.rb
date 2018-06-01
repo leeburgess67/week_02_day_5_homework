@@ -28,7 +28,8 @@ class RoomTest < MiniTest::Test
 
     @rock_room = Room.new("Rock Room", 4, [@guest5, @guest6, @guest7], [@song4, @song5, @song6])
 
-    @cheese_room = Room.new("Cheese Room", 4, [@guest8, @guest9, @guest10])
+    @cheese_room = Room.new("Cheese Room", 4, [@guest8, @guest9, @guest10], [@song7, @song8, @song9, @song10])
+  end
 
 
     def test_room_has_name
