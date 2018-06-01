@@ -28,7 +28,7 @@ class RoomTest < MiniTest::Test
 
     @rock_room = Room.new("Rock Room", 4, [@guest5, @guest6, @guest7], [@song4, @song5, @song6])
 
-    @cheese_room = Room.new("Cheese Room", 4, [], [@song7, @song8, @song9, @song10])
+    @cheese_room = Room.new("Cheese Room", 4, [], [@song7, @song8])
   end
 
 
@@ -45,8 +45,13 @@ class RoomTest < MiniTest::Test
     end
 
     def test_room_has_songs
-      assert_equal(4, @cheese_room.songs_available_in_room.count
+      assert_equal(2, @cheese_room.songs_available_in_room.count
       )
+    end
+
+    def test_add_song_to_room
+        @cheese_room.add_song(@song9)
+        assert_equal(3, @cheese_room.songs_available_in_room.count)
     end
 
 
