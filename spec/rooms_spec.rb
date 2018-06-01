@@ -44,6 +44,11 @@ class RoomTest < MiniTest::Test
       assert_equal(3, @rock_room.current_guests_in_room.count)
     end
 
+    def test_room_has_songs
+      assert_equal(4, @cheese_room.songs_available_in_room.count
+      )
+    end
+
 
 
 
