@@ -24,11 +24,11 @@ class RoomTest < MiniTest::Test
     @guest4 = Guest.new("Rob Halford", "Painkiller")
     @guest5 = Guest.new("Bruce Dickenson", "Run to the hills")
 
-    @metal_room = Room.new("Metal Room", 4, [@guest1, @guest2, @guest3, @guest4], [@song1, @song2, @song3])
+    @metal_room = Room.new("Metal Room", 4, [@guest1, @guest2, @guest3, @guest4], [@song1, @song2, @song3], 10)
 
-    @rock_room = Room.new("Rock Room", 4, [@guest5, @guest6, @guest7], [@song4, @song5, @song6])
+    @rock_room = Room.new("Rock Room", 4, [@guest5, @guest6, @guest7], [@song4, @song5, @song6], 15)
 
-    @cheese_room = Room.new("Cheese Room", 4, [], [@song7, @song8])
+    @cheese_room = Room.new("Cheese Room", 4, [], [@song7, @song8], 5)
   end
 
 
@@ -68,6 +68,9 @@ class RoomTest < MiniTest::Test
       assert_equal(4, @metal_room.current_guests_in_room.count)
     end
 
+    def test_room_has_entry_fee
+      assert_equal(15, @rock_room.entry_fee)
+    end
 
 
 
