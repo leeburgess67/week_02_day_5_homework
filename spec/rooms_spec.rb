@@ -87,6 +87,10 @@ class RoomTest < MiniTest::Test
       assert_equal("Wooooo!", @cheese_room.cheer_if_fav_song_in_room(@guest1))
     end
 
+    def test_boo_if_song_not_in_room
+      assert_equal("Booo!", @cheese_room.cheer_if_fav_song_in_room(@guest5) )
+    end
+
 
 
 
