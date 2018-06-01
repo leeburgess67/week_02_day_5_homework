@@ -1,6 +1,8 @@
 require ("minitest/autorun")
 require_relative ("../guest.rb")
 require_relative ("../rooms.rb")
+require_relative ("../drink.rb")
+require_relative ("../bar.rb")
 require ("minitest/rg")
 
 class GuestTest < MiniTest::Test
@@ -29,6 +31,10 @@ class GuestTest < MiniTest::Test
 
     @cheese_room = Room.new("Cheese Room", 4, [], [@song7, @song8], 5)
 
+    @vodka = Drink.new("vodka", 2.5, 3)
+    @beer = Drink.new("beer", 3, 1.5)
+
+    @tipsy = Bar.new("The Tipsy Cow Bar", [@vodka, @beer], 200)
   end
 
   def test_has_name
@@ -41,6 +47,12 @@ class GuestTest < MiniTest::Test
 
   def test_has_money
     assert_equal(10, @guest3.wallet)
+  end
+
+  def guest_can_buy_drink__wallet_decreases
+  @guest1.buy_drink(@vodka)
+  assert_equal(47.5, @guest1.wallet)
+
   end
 
 
