@@ -31,12 +31,10 @@ class BarTest < MiniTest::Test
   end
 
 
-  def test_take_money()
-    @tipsy.take_money(@vodka)
+  def test_take_order()
+    @tipsy.take_order(@vodka)
   assert_equal(202.5, @tipsy.till)
   end
-
-
 
 
 end
