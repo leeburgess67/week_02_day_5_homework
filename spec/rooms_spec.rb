@@ -18,11 +18,11 @@ class RoomTest < MiniTest::Test
     @song9 = Song.new("Take the power back")
     @song10 = Song.new("Black")
 
-    @guest1 = Guest.new("Axl Rose", "November Rain")
-    @guest2 = Guest.new("Bon Scott", "Highway to hell")
-    @guest3 = Guest.new("Ozzy Osbourne", "Children of the grave")
-    @guest4 = Guest.new("Rob Halford", "Painkiller")
-    @guest5 = Guest.new("Bruce Dickenson", "Run to the hills")
+    @guest1 = Guest.new("Axl Rose", "November Rain", 50)
+    @guest2 = Guest.new("Bon Scott", "Highway to hell", 5)
+    @guest3 = Guest.new("Ozzy Osbourne", "Children of the grave", 10)
+    @guest4 = Guest.new("Rob Halford", "Painkiller", 0)
+    @guest5 = Guest.new("Bruce Dickenson", "Run to the hills", 15)
 
     @metal_room = Room.new("Metal Room", 4, [@guest1, @guest2, @guest3, @guest4], [@song1, @song2, @song3], 10)
 
@@ -54,7 +54,7 @@ class RoomTest < MiniTest::Test
     end
 
     def test_check_in_guest
-      @cheese_room.check_in(@guest8)
+      @cheese_room.check_in(@guest1)
       assert_equal(1, @cheese_room.current_guests_in_room.count)
     end
 
@@ -64,13 +64,21 @@ class RoomTest < MiniTest::Test
     end
 
     def test_refuse_if_full
-      @metal_room.check_in(@guest9)
+      @metal_room.check_in(@guest2)
       assert_equal(4, @metal_room.current_guests_in_room.count)
     end
 
     def test_room_has_entry_fee
       assert_equal(15, @rock_room.entry_fee)
     end
+
+    def refuse_if_not_enough_money
+      @cheese_room.check_in(@guest4)
+      assert_equal(0, @cheese_room.current_guests_in_room.count)
+    end
+
+
+
 
 
 
