@@ -59,6 +59,8 @@ class GuestTest < MiniTest::Test
     assert_equal(202.5, @tipsy.till)
   end
 
+  def 
+
 
 
 

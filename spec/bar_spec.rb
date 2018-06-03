@@ -26,7 +26,9 @@ class BarTest < MiniTest::Test
     @vodka = Drink.new("vodka", 2.5, 3)
     @beer = Drink.new("beer", 3, 1.5)
 
-    @tipsy = Bar.new("The Tipsy Cow Bar", [@vodka, @beer], 200)
+    stock = {@vodka => 5, @beer => 10}
+
+    @tipsy = Bar.new("The Tipsy Cow Bar", stock, 200)
 
   end
 
@@ -36,5 +38,9 @@ class BarTest < MiniTest::Test
   assert_equal(202.5, @tipsy.till)
   end
 
+  def test_check_stock()
+    assert_equal(10, @tipsy.check_stock(@vodka))
+
+  end
 
 end
